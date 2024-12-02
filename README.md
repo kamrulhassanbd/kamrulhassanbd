@@ -1,3 +1,12 @@
+
+![I am a Network Administrator and DevOps Enthusiastic](https://arturssmirnovs.github.io/github-profile-readme-generator/images/banner.png)
+### Hi there 👋, I'am Kamrul Hasan
+#### I am a Network Administrator and DevOps Enthusiastic
+
+
+Skills: | CCNA | MTCNA | Windows Server | Linux | AWS | Docker | Kubernetes | Jenkins | Ansible | Github | Terraform | Grafana | Prometheus
+
+
 # 💫 About Me:
 🔭 I’m currently working on Tech Valley Solutions Limited as a Network Administrator<br>👯 I’m looking to collaborate on<br>🤝 I’m looking for help with<br>🌱 I’m currently learning GitHub, Docker, Kubernetes, Terraform, Jenkins And Prometheus <br>💬 Ask me about DevOps and Networking<br>📫 Reach Me https://www.linkedin.com/in/kamrulhasanbba/
 

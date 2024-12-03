@@ -1,40 +1,45 @@
-##Basic Commands:   
-Delete User -->  'deluser user_name'  
-Remove installation package  yum remove postgresql*
-Package Check  yum list installed | grep post
-Show all (including hidden)  ls -a
-Lists files in sub-directories as well  ls -R
-User Details of Password history  sudo chage -l username
-Search specific package  sudo yum list --installed | grep nexus
+## 📢 Basic Commands:
+---
+Delete User ➙  `deluser user_name`  
+Remove installation package ➙ `yum remove postgresql*`  
+Package Check ➙ `yum list installed | grep post`  
+Show all (including hidden) ➙ `ls -a`  
+Lists files in sub-directories as well ➙ `ls -R`  
+User Details of Password history ➙ `sudo chage -l username`  
+Search specific package ➙ `sudo yum list --installed | grep nexus`  
 
-Problem and Solutions:
- 	userdel: user sonar is currently used by process 3160
+## 📢 Problem and Solutions:
+---
+### 🎯 userdel: user sonar is currently used by process 3160
 
-	First use pkill or kill -9 <pid> to kill the process.
-	Then use following userdel command to delete user,
-userdel -f cafe_fixer
+➣	First use `pkill or kill -9 <pid>` to kill the process.  
+➣	Then use following userdel command t o delete user,  
+`userdel -f cafe_fixer`
 
- 	Fix HTTP Error 404 Not Found Trying Other Mirror CentOS 7
+### 🎯 Fix HTTP Error 404 Not Found Trying Other Mirror CentOS 7
 
-	Run the following commands to search and replace the mirrors:
+#### ➣	Run the following commands to search and replace the mirrors:
 
+```
 sudo sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo
 sudo sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/*.repo
 sudo sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/*.repo
-sudo -- bash -c 'echo "sslverify=false" >> /etc/yum.conf'
+sudo -- bash -c 'echo "sslverify=false" >>/etc/yum.conf'
+```     
 
 
+### 🎯 How to remove this warning "This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register."
 
-How to remove this warning "This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register."
-
+```
 vim /etc/yum/pluginconf.d/subscription-manager.conf  
 enabled=0
+```   
 
- 	sudo sestatus command not found in ubuntu
+### 🎯 sudo sestatus command not found in ubuntu
 
-	sudo apt-get install selinux-basics
+➣   ```sudo apt-get install selinux-basics```   
 
- 	root@192.168.140.139's password access denied in centos 9 when ssh login
+### 🎯 root@192.168.140.139's password access denied in centos 9 when ssh login
 
 1.	Check SSH Configuration:
 	sudo vim /etc/ssh/sshd_config
@@ -53,7 +58,7 @@ SELINUX=disabled
 	sudo firewall-cmd --permanent --add-service=ssh
 	sudo firewall-cmd –reload
 
- 	"internal/modules/cjs/loader.js:582 throw err"
+### 🎯 "internal/modules/cjs/loader.js:582 throw err"
 
  	node:internal/modules/cjs/loader:1031
  	  throw err;

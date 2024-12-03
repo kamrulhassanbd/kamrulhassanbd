@@ -1,5 +1,5 @@
-##Basic Commands: 
-Delete User   deluser user_name
+##Basic Commands:   
+Delete User -->  'deluser user_name'  
 Remove installation package  yum remove postgresql*
 Package Check  yum list installed | grep post
 Show all (including hidden)  ls -a

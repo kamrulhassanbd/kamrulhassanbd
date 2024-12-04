@@ -27,7 +27,6 @@ sudo sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/*.repo
 sudo -- bash -c 'echo "sslverify=false" >>/etc/yum.conf'
 ```     
 
-
 ### 🎯 How to remove this warning "This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register."
 
 ```
@@ -37,34 +36,44 @@ enabled=0
 
 ### 🎯 sudo sestatus command not found in ubuntu
 
-➣   ```sudo apt-get install selinux-basics```   
+#### ➣ Run this command 
+``` 
+sudo apt-get install selinux-basics
+```   
 
 ### 🎯 root@192.168.140.139's password access denied in centos 9 when ssh login
 
-1.	Check SSH Configuration:
-	sudo vim /etc/ssh/sshd_config
+#### 1.	Check SSH Configuration:
+```	
+sudo vim /etc/ssh/sshd_config
+```   
+##### Edit this line: 
+> PasswordAuthentication yes   
+> PermitRootLogin yes
+##### Restart SSHD:   
+```
+sudo systemctl restart sshd
+```   
 
-	PasswordAuthentication yes
-	PermitRootLogin yes
+#### 2.	Check SELinux:
+```
+sudo sestatus
+```
+☑️	SELinux configuration file is usually located at `/etc/selinux/config`   
+> SELINUX=disabled   
+#### 3.	Firewall Settings:   
+```
+sudo firewall-cmd --list-all
+sudo firewall-cmd --permanent --add-service=ssh
+sudo firewall-cmd –reload
+```
 
-	sudo systemctl restart sshd
-
-2.	Check SELinux:
-	sudo sestatus
-	SELinux configuration file is usually located at /etc/selinux/config.
-SELINUX=disabled
-3.	Firewall Settings:
-	sudo firewall-cmd --list-all
-	sudo firewall-cmd --permanent --add-service=ssh
-	sudo firewall-cmd –reload
-
-### 🎯 "internal/modules/cjs/loader.js:582 throw err"
-
- 	node:internal/modules/cjs/loader:1031
+### 🎯 "internal/modules/cjs/loader.js:582 throw err"   
+```javascript
+node:internal/modules/cjs/loader:1031
  	  throw err;
  	  ^
- 	
- 	Error: Cannot find module 'express'
+Error: Cannot find module 'express'
  	Require stack:
  	- /root/mongo-docker/js-app/app/server.js
  	    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1028:15)
@@ -74,8 +83,9 @@ SELINUX=disabled
  	    at Object.<anonymous> (/root/mongo-docker/js-app/app/server.js:1:15)
  	    at Module._compile (node:internal/modules/cjs/loader:1198:14)
  	    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-	Solution: 
-•	Delete the node_modules directory
-•	Delete the package-lock.json file
-•	Run npm install
-•	Run npm start
+```
+#### ➣	Solution: 
+☑️	Delete the `node_modules` directory   
+☑️	Delete the `package-lock.json` file   
+☑️	Run `npm install`   
+☑️	Run `npm start`  

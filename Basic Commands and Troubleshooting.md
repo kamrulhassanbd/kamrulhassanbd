@@ -91,14 +91,18 @@ Error: Cannot find module 'express'
 ☑️	Run `npm start`  
 
 
-### Netplan 00-installer-config.yaml File is Missing in Ubuntu 24.04.1 LTS
+### 🎯 Netplan 00-installer-config.yaml File is Missing in Ubuntu 24.04.1 LTS
 #### ➣	Solution: 
-[//] write the file to disable the cloud-init network configuration
+##### 1. write the file to disable the cloud-init network configuration
+```
 sudo mkdir -p /etc/cloud/cloud.cfg.d
 echo "network: {config: disabled}" | sudo tee /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+```
 
-# check if 50-cloud-init.yaml exists, if it does, make a backup and rename it to 00-installer-config.yaml
+##### 2. check if 50-cloud-init.yaml exists, if it does, make a backup and rename it to 00-installer-config.yaml
+```
 if [ -f /etc/netplan/50-cloud-init.yaml ]; then
   sudo cp /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.old
   sudo mv /etc/netplan/50-cloud-init.yaml /etc/netplan/00-installer-config.yaml
 fi
+```
